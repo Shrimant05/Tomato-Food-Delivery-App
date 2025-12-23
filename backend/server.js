@@ -28,4 +28,3 @@ app.listen(port,()=>{
     console.log(`server started on http://localhost:${port}`)
 })
 
-//mongodb+srv://shrimant:Shrimant2005@cluster0.dtarrtf.mongodb.net/?appName=Cluster0
