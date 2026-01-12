@@ -1,4 +1,4 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, use, useEffect, useState } from "react";
 import { food_list } from "../assets/assets";
 export const StoreContext = createContext();
 
@@ -33,6 +33,11 @@ export const StoreContextProvider = ({ children }) => {
   useEffect(() => {
     console.log(cartItems);
   }, [cartItems]);
+  useEffect(() => {
+    if (localStorage.getItem("token")) {
+      setToken(localStorage.getItem("token"));
+    }
+  },[])
   const getTotalCartAmount = () => {
     let totalAmount = 0;
     for (const item in cartItems) {
@@ -43,6 +48,8 @@ export const StoreContextProvider = ({ children }) => {
     }
     return totalAmount;
   };
+  const url="http://localhost:4000";
+  const [token,setToken]=useState("");
   const value = {
     foodList,
     setFoodList,
@@ -51,6 +58,9 @@ export const StoreContextProvider = ({ children }) => {
     addToCart,
     removeFromCart,
     getTotalCartAmount,
+    url,
+    token,
+    setToken
   };
 
   return (
