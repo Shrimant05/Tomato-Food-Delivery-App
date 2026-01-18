@@ -7,12 +7,12 @@ const FoodItem = ({ id, name, price, description, image }) => {
   //const[cartItems,removeFromCart,addToCart]=useContext(StoreContext);
   const store = useContext(StoreContext) || {};
   const { cartItems = {}, removeFromCart, addToCart } = store;
-  
+  const url="http://localhost:4000";
 
   return (
     <div className="food-item">
       <div className="food-item-img-container">
-        <img className="food-item-img" src={image} alt="" />
+        <img className="food-item-img" src={url+"/images/"+image} alt="" />
         {
           !cartItems[id]
           ?
