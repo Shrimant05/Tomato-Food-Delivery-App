@@ -24,7 +24,7 @@ const loginUser=async(req,res)=>{
 }
 //create token
 const createToken=(id)=>{
-    return jwt.sign({id},process.env.JWT_SECRET);
+    return jwt.sign({id},process.env.JWT_SECRET,{expiresIn:"7d"});
 }
 //register user
 const registerUser=async(req,res)=>{
